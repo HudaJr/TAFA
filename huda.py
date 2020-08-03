@@ -44,7 +44,7 @@ list_menu = {
 		"Spam React Di Fanspage"
 	],
 	"comment": [
-		"Spam Comment Di Berand",
+		"Spam Comment Di Beranda",
 		"Spam Comment Di Profil Teman",
 		"Spam Comment Di Group",
 		"Spam Comment Di Fanspage"
@@ -210,7 +210,7 @@ def count_proccess(count, total):
 @updateFunc
 def home():
 	banner()
-	print(f"""   {C}1).{W} Go To Menu
+	print(f"""   {C}1).{W} Pergi Ke Menu
    {C}2).{W} Masuk
    {C}3).{W} Log Out
    {C}4).{W} Update
