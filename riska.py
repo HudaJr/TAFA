@@ -1,4 +1,4 @@
-# coded by: Huda Jr
+# coded by: salism3
 # 22 - 07 - 2020 12:19
 
 import os, random, time, sys, shutil
@@ -256,7 +256,7 @@ def login():
       memahami dan mematuhi ketentuan di atas
       "" ")
 
-	cookies = input_("Cookies Facebook Anda: ")
+	cookies = input_(" Cookies Facebook Anda: ")
 	ses = fb.Account(cookies)
 	try:
 		url = "https://mbasic.facebook.com/photo.php?fbid=166694224710808&id=100041106940465"
