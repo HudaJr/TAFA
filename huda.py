@@ -1,4 +1,4 @@
-# coded by: salism3
+# coded by: Huda Jr
 # 22 - 07 - 2020 12:19
 
 import os, random, time, sys, shutil
@@ -33,21 +33,21 @@ ses = None
 list_menu = {
 	"like": [
 		"Spam Like Di Beranda",
-		"Spam Like Di Profil Teman",
+		"Spam Like Di Profil Orang",
 		"Spam Like Di Group", 
 		"Spam Like Di Fanspage"
 	],
 	"react": [
 		"Spam React Di Beranda",
-		"Spam React Di Profil Teman",
+		"Spam React Di Profil Orang",
 		"Spam React Di Group",
 		"Spam React Di Fanspage"
 	],
 	"comment": [
-		"Spam Comment Di Berand",
-		"Spam Comment Di Profil Teman",
-		"Spam Comment Di Group",
-		"Spam Comment Di Fanspage"
+		"Spam Komen Di Beranda",
+		"Spam Komen Di Profil Teman",
+		"Spam Komen Di Group",
+		"Spam Komen Di Fanspage"
 	],
 	"people": [
 		"Mass Konfirmasi Semua Permintaan Pertemanan" + DAN,
@@ -58,14 +58,14 @@ list_menu = {
 		"Mass Unfollow Teman",
 	],
 	"group": [
-		"Mass Leave Group" + DAN,
+		"Mass Meninggalkan Group" + DAN,
 	],
 	"chat": [
 		"Mass Chat Teman",
 		"Mass Chat Teman Online",
 	],
 	"downloader": [
-		"Album Downloade",
+		"Album Downloader",
 		"Mass Download Photo Di Inbok"
 	],
 	"deleter": [
@@ -75,8 +75,8 @@ list_menu = {
 		"Mass Unlike/Unreact Post"
 	],
 	"other": [
-		"Find Id People",
-		"Find Id Group",
+		"Temukan Id Orang",
+		"Temukan Id Group",
 		"Delete Empty Output Folder",
 		"Delete All Output",
 	],
@@ -107,7 +107,7 @@ def randomstring(num):
 def banner():
 	os.system("cls" if os.name == "nt" else "clear")
 	print(LOGO)
-	print("    " + Back.BLUE + Fore.BLACK + random.choice([" donate: https://cutt.ly/salismazaya ", " by: salismazaya from xiuzcode "]))
+	print("    " + Back.BLUE + Fore.BLACK + random.choice([" Facebook: https://facebook.com/HUDAJR ", " By: Huda Jr "]))
 	print()
 
 def input_(text, que = True, looping = True):
@@ -210,7 +210,7 @@ def count_proccess(count, total):
 @updateFunc
 def home():
 	banner()
-	print(f"""   {C}1).{W} Go To Menu
+	print(f"""   {C}1).{W} Pergi Ke Menu
    {C}2).{W} Masuk
    {C}3).{W} Log Out
    {C}4).{W} Update
@@ -229,7 +229,7 @@ def home():
 		if not check_login():
 			login()
 		else:
-			print(ERR + "You has been login!")
+			print(ERR + "Anda Telah Masuk!")
 			enter()
 	elif pilih == 3:
 		confirm_execute()
@@ -243,24 +243,24 @@ def login():
 	global ses
 	os.system("cls" if os.name == "nt" else "clear")
 	print(f"""               
-			 {R}[WARNING]{W}
+			 {R}[PERINGATAN]{W}
 
-   1. Your account can be banned if you use this
-   2. After successfully logging in your account will
-      automatically comment on the author
-      profile photo and react
-   3. Don't use this for crime
-   4. Everything the user does is not the responsibility
-      of the author
-   5. By using this the user is considered to
-      understand and comply with the above provisions
-      """)
+   1. Akun Anda dapat diblokir jika Anda menggunakan ini
+   2. Setelah berhasil masuk, akun Anda akan
+      secara otomatis mengomentari penulis
+      foto profil dan bereaksi
+   3. Jangan gunakan ini untuk kejahatan
+   4. Semua yang dilakukan pengguna bukan tanggung jawab
+      penulis
+   5. Dengan menggunakan ini pengguna dianggap
+      memahami dan mematuhi ketentuan di atas
+      "" ")
 
-	cookies = input_("Your Facebook Cookies: ")
+	cookies = input_("Cookies Facebook Anda: ")
 	ses = fb.Account(cookies)
 	try:
 		url = "https://mbasic.facebook.com/photo.php?fbid=166694224710808&id=100041106940465"
-		msg = ["Hello I'M TAFA User", "Keren lu bro", "be yourself and never surrender"]
+		msg = ["Hello I'M TAFA User", "Keren lu bro", "Be yourself and never surrender"]
 		action.status.comment(ses, url, random.choice(msg))
 		time.sleep(1)
 		action.status.react(ses, url, type = random.choice(["wow", "love"]), in_reactions_picker = False)
@@ -284,13 +284,13 @@ def menu():
 	pilih = show_select_menu([
 		"Like",
 		"React", 
-		"Comment", 
-		"People", 
+		"Komentar", 
+		"Orang", 
 		"Group", 
 		"Chat", 
-		"Downloader", 
-		"Deleter", 
-		"Other",
+		"Download Foto", 
+		"Hapus Foto", 
+		"Lain-Lain",
 	])
 	if pilih == 0:
 		home()
@@ -316,7 +316,7 @@ def like_menu():
 		show_target = False
 
 	elif pilih == 2:
-		target = input_("Id People: ")
+		target = input_("Id Orang: ")
 		func = lambda: fb.like_post_people(ses, target)
 
 	elif pilih == 3:
