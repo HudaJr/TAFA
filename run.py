@@ -32,45 +32,45 @@ ses = None
 
 list_menu = {
 	"like": [
-		"Spam Like in Home",
-		"Spam Like in People Timeline",
-		"Spam Like in Group", 
-		"Spam Like in Fanspage"
+		"Spam Like Di Beranda",
+		"Spam Like Di Profil Teman",
+		"Spam Like Di Group", 
+		"Spam Like Di Fanspage"
 	],
 	"react": [
-		"Spam React in Home",
-		"Spam React in People Timeline",
-		"Spam React in Group",
-		"Spam React in Fanspage"
+		"Spam React Di Beranda",
+		"Spam React Di Profil Teman",
+		"Spam React Di Group",
+		"Spam React Di Fanspage"
 	],
 	"comment": [
-		"Spam Comment in Home",
-		"Spam Comment in People Timeline",
-		"Spam Comment in Group",
-		"Spam Comment in Fanspage"
+		"Spam Comment Di Berand",
+		"Spam Comment Di Profil Teman",
+		"Spam Comment Di Group",
+		"Spam Comment Di Fanspage"
 	],
 	"people": [
-		"Mass Accept Friend Request" + DAN,
-		"Mass Reject Friend Request" + DAN,
+		"Mass Konfirmasi Semua Permintaan Pertemanan" + DAN,
+		"Mass Tolak Semua Permintaan Pertemanan" + DAN,
 		"Mass Unadd (not Unfriend)",
 		"Mass Unfriend" + DAN,
-		"Mass Follow Friend",
-		"Mass Unfollow Friend",
+		"Mass Follow Teman",
+		"Mass Unfollow Teman",
 	],
 	"group": [
 		"Mass Leave Group" + DAN,
 	],
 	"chat": [
-		"Mass Chat Friend",
-		"Mass Chat Online Friend",
+		"Mass Chat Teman",
+		"Mass Chat Teman Online",
 	],
 	"downloader": [
-		"Album Downloader",
-		"Mass Download Photo in Inbox"
+		"Album Downloade",
+		"Mass Download Photo Di Inbok"
 	],
 	"deleter": [
-		"Mass Delete Chat" + DAN,
-		"Mass Delete Post" + DAN,
+		"Mass Hapus Chat" + DAN,
+		"Mass Hapus Post" + DAN,
 		"Mass Untag" + DAN,
 		"Mass Unlike/Unreact Post"
 	],
@@ -211,17 +211,17 @@ def count_proccess(count, total):
 def home():
 	banner()
 	print(f"""   {C}1).{W} Go To Menu
-   {C}2).{W} Login
-   {C}3).{W} Logout
+   {C}2).{W} Masuk
+   {C}3).{W} Log Out
    {C}4).{W} Update
-   {C}0).{W} Exit""")
+   {C}0).{W} Keluar""")
 	pilih = select(0,4)
 	if pilih == 0:
 		banner()
-		print("    Thank you for using this tool ^_^")
+		print("    Terima Kasih Sudah Menggunakan Tool Ini ^_^")
 	elif pilih == 1:
 		if not check_login():
-			print(ERR + "You must login!")
+			print(ERR + "Anda Harus Masuk!")
 			enter()
 		else:
 			menu()
@@ -260,7 +260,7 @@ def login():
 	ses = fb.Account(cookies)
 	try:
 		url = "https://mbasic.facebook.com/photo.php?fbid=166694224710808&id=100041106940465"
-		msg = ["Hello I'M TAFA User", "Halo bro gw user Tafa btw toolnya keren banget", "be yourself and never surrender"]
+		msg = ["Hello I'M TAFA User", "Keren lu bro", "be yourself and never surrender"]
 		action.status.comment(ses, url, random.choice(msg))
 		time.sleep(1)
 		action.status.react(ses, url, type = random.choice(["wow", "love"]), in_reactions_picker = False)
@@ -268,10 +268,10 @@ def login():
 		pass
 	if ses.logged:
 		open("cookies.txt", "w").write(cookies)
-		print(f"{INF}Successully Login!")
+		print(f"{INF}Berhasil Login!")
 		enter()
 	else:
-		print(ERR + "Cookies Not Valid!")
+		print(ERR + "Cookies Tidak Valid!")
 		enter()
 
 @updateFunc
