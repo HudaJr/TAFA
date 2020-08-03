@@ -645,6 +645,7 @@ def other_menu():
 	enter()
 
 
+
 CURRENT_FUNC = home
 
 def enter():
@@ -655,6 +656,7 @@ def enter():
 	getpass(f"\n   {C}[{W} Press Enter to Back {C}]{W}")
 	CURRENT_FUNC()
 	exit()
+
 
 try:
 	home()
