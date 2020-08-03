@@ -1,4 +1,4 @@
-# coded by: salism3
+# coded by: Huda Jr
 # 22 - 07 - 2020 12:19
 
 import os, random, time, sys, shutil
