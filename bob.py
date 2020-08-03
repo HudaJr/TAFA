@@ -32,7 +32,7 @@ ses = None
 
 list_menu = {
 	"like": [
-		"Spam Like in Home",
+		"Spam Like Di Beranda",
 		"Spam Like in People Timeline",
 		"Spam Like in Group", 
 		"Spam Like in Fanspage"
