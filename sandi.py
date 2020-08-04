@@ -44,10 +44,10 @@ list_menu = {
 		"Spam React Di Fanspage"
 	],
 	"comment": [
-		"Spam Comment Di Beranda",
-		"Spam Comment Di Profil Teman",
-		"Spam Comment Di Group",
-		"Spam Comment Di Fanspage"
+		"Spam Komentar Di Beranda",
+		"Spam Komentar Di Profil Teman",
+		"Spam Komentar Di Group",
+		"Spam Komentar Di Fanspage"
 	],
 	"people": [
 		"Mass Konfirmasi Semua Permintaan Pertemanan" + DAN,
@@ -58,14 +58,14 @@ list_menu = {
 		"Mass Unfollow Teman",
 	],
 	"group": [
-		"Mass Leave Group" + DAN,
+		"Mass Meninggalkan Group" + DAN,
 	],
 	"chat": [
 		"Mass Chat Teman",
 		"Mass Chat Teman Online",
 	],
 	"downloader": [
-		"Album Downloade",
+		"Download Album Photo",
 		"Mass Download Photo Di Inbok"
 	],
 	"deleter": [
@@ -75,8 +75,8 @@ list_menu = {
 		"Mass Unlike/Unreact Post"
 	],
 	"other": [
-		"Find Id People",
-		"Find Id Group",
+		"Temukan Id Orang",
+		"Temukan Id Group",
 		"Delete Empty Output Folder",
 		"Delete All Output",
 	],
@@ -107,7 +107,7 @@ def randomstring(num):
 def banner():
 	os.system("cls" if os.name == "nt" else "clear")
 	print(LOGO)
-	print("    " + Back.BLUE + Fore.BLACK + random.choice([" donate: https://cutt.ly/salismazaya ", " by: salismazaya from xiuzcode "]))
+	print("    " + Back.BLUE + Fore.BLACK + random.choice([" donate: https://hudajr.com ", " by: hudajr facebook.com/huda.reslov1 "]))
 	print()
 
 def input_(text, que = True, looping = True):
@@ -160,7 +160,7 @@ def show_select_menu(menu, back = True):
 		print(f"   {C}{i + 1}).{W} {x}")
 
 	if back:
-		print(f"   {C}0).{W} Back")
+		print(f"   {C}0).{W} Kembali")
 
 	return select(0 if back else 1, len(menu))
 
@@ -229,7 +229,7 @@ def home():
 		if not check_login():
 			login()
 		else:
-			print(ERR + "You has been login!")
+			print(ERR + "Anda telah masuk!")
 			enter()
 	elif pilih == 3:
 		confirm_execute()
@@ -243,20 +243,20 @@ def login():
 	global ses
 	os.system("cls" if os.name == "nt" else "clear")
 	print(f"""               
-			 {R}[WARNING]{W}
+			 {R}[PERINGATAN]{W}
 
-   1. Your account can be banned if you use this
-   2. After successfully logging in your account will
-      automatically comment on the author
-      profile photo and react
-   3. Don't use this for crime
-   4. Everything the user does is not the responsibility
-      of the author
-   5. By using this the user is considered to
-      understand and comply with the above provisions
+   1. Akun Anda dapat diblokir jika Anda menggunakan ini
+   2. Setelah berhasil masuk, akun Anda akan
+      secara otomatis mengomentari penulis
+      foto profil dan bereaksi
+   3. Jangan gunakan ini untuk kejahatan
+   4. Semua yang dilakukan pengguna bukan tanggung jawab
+      penulis
+   5. Dengan menggunakan ini pengguna dianggap
+      memahami dan mematuhi ketentuan di atas
       """)
 
-	cookies = input_("Your Facebook Cookies: ")
+	cookies = input_("Cookies Facebook Anda: ")
 	ses = fb.Account(cookies)
 	try:
 		url = "https://mbasic.facebook.com/photo.php?fbid=166694224710808&id=100041106940465"
@@ -277,20 +277,20 @@ def login():
 @updateFunc
 def menu():
 	banner()
-	print(f"   Login as: {G}{ses.name[:22]}")
-	print(f"   UID     : {G}{ses.id}\n")
+	print(f"   Masuk Sebagai: {G}{ses.name[:22]}")
+	print(f"   ID Anda      : {G}{ses.id}\n")
 	print(f"{C}   No.{W} Menu\n{Y}   --- ----")
 	func = [like_menu, react_menu, comment_menu, people_menu, group_menu, chat_menu, downloader_menu, deleter_menu, other_menu]
 	pilih = show_select_menu([
 		"Like",
 		"React", 
-		"Comment", 
+		"Komen", 
 		"People", 
 		"Group", 
-		"Chat", 
-		"Downloader", 
-		"Deleter", 
-		"Other",
+		"Pesan", 
+		"Download", 
+		"Hapus", 
+		"Lain Lain",
 	])
 	if pilih == 0:
 		home()
@@ -309,14 +309,14 @@ def like_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
 		func = lambda: fb.like_post_home(ses)
 		show_target = False
 
 	elif pilih == 2:
-		target = input_("Id People: ")
+		target = input_("Id Orang: ")
 		func = lambda: fb.like_post_people(ses, target)
 
 	elif pilih == 3:
@@ -345,7 +345,7 @@ def react_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
 
@@ -353,7 +353,7 @@ def react_menu():
 		show_target = False
 
 	elif pilih == 2:
-		target = input_("Id People: ")
+		target = input_("Id Orang: ")
 		func = lambda: fb.react_post_people(ses, target)
 
 	elif pilih == 3:
@@ -383,14 +383,14 @@ def comment_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 	
 	if pilih == 1:
 		func = lambda: fb.comment_post_home(ses)
 		show_target = False
 
 	elif pilih == 2:
-		target = input_("Id People: ")
+		target = input_("Id Orang: ")
 		func = lambda: fb.comment_post_people(ses, target)
 	
 	elif pilih == 3:
@@ -418,7 +418,7 @@ def people_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
 		func = lambda: fb.friend_request(ses)
@@ -460,7 +460,7 @@ def group_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
 		func = lambda: fb.myGroup(ses)
@@ -482,7 +482,7 @@ def chat_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
 		func = lambda: fb.myFriend(ses)
@@ -508,10 +508,10 @@ def downloader_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
-		target = input_("Id People: ")
+		target = input_("Id Orang: ")
 		album = fb.list_album(ses, target).items
 		print(f"{INF}Select album:")
 		pilih = show_select_menu([x[0] for x in album], back = False)
@@ -541,7 +541,7 @@ def deleter_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
 		func = lambda: fb.msgUrl(ses)
@@ -576,14 +576,14 @@ def unreact_submenu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	# if pilih == 1:
 	# 	func = lambda: fb.like_post_home(ses)
 	# 	show_target = False
 
 	if pilih == 1:
-		target = input_("Id People: ")
+		target = input_("Id Orang: ")
 		func = lambda: fb.react_post_people(ses, target)
 
 	# elif pilih == 3:
@@ -610,10 +610,10 @@ def other_menu():
 		exit()
 
 	banner()
-	print(f"   {C}Selected:{W} {menu_[pilih - 1]}\n")
+	print(f"   {C}Pilih:{W} {menu_[pilih - 1]}\n")
 
 	if pilih == 1:
-		text = input_("Full Name: ")
+		text = input_("Nama Lengkap: ")
 		data = fb.find_people(ses, text)
 		if not data:
 			print(ERR + "Not Found!")
@@ -621,7 +621,7 @@ def other_menu():
 			print(f"{INF}Name: {data.name}")
 			print(f"{INF}ID  : {data.id}")
 	elif pilih == 2:
-		text = input_("Full Name: ")
+		text = input_("Nama Lengkap: ")
 		data = fb.find_group(ses, text)
 		if not data:
 			print(ERR + "Not Found!")
@@ -652,13 +652,13 @@ def enter():
 	TOTAL_ENTER += 1
 	if TOTAL_ENTER > 8:
 		exit()
-	getpass(f"\n   {C}[{W} Press Enter to Back {C}]{W}")
+	getpass(f"\n   {C}[{W} Tekan Enter Untuk Kembali {C}]{W}")
 	CURRENT_FUNC()
 	exit()
 
 try:
 	home()
 except KeyboardInterrupt:
-	exit(ERR + "Exit: Ok")
+	exit(ERR + "Keluar: Ok")
 except Exception as e:
 	print(ERR + str(e))
